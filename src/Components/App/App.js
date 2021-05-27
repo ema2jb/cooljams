@@ -80,7 +80,8 @@ class App extends React.Component {
 
   search(jam){
     const jams = spotify.search(jam)
-    console.log(jams);
+    const jamItems = jams.map((item)=>{return item})
+    console.log(jamItems);
     this.setState({
       searchResults:jams
     })
