@@ -15,11 +15,7 @@ Ensure playlist information doesn’t get cleared if a user has to refresh their
 let userAccessToken = '';
 let expiresIn;
 const clientID = '58b0b44d6a36401ba4b6bab925186aff'
-<<<<<<< HEAD
-const redirectURI = 'http://ema2jb.surge.sh';
-=======
 const redirectURI = window.location.href;
->>>>>>> b5013dd28df3b496fd78cd039261a0136e11a0a8
 
 
 
