@@ -53,7 +53,7 @@ export const spotify = {
             if(jsonResponse){
                 const Tracks = jsonResponse.map((track)=>{
                     return {
-                        ID:track.id,
+                        id:track.id,
                         Name:track.name,
                         Artist:track.artists[0].name,
                         Album:track.album.name,
@@ -62,7 +62,9 @@ export const spotify = {
                 })
                 return Tracks
             } else {
-                return jsonResponse;
+                return  {
+                    id:7, name:'tusboy', artist:'tus', album:'javap'
+                  }
             }
           }
       }catch(error){
