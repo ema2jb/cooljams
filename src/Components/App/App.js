@@ -79,11 +79,7 @@ class App extends React.Component {
   }
 
   search(jam){
-    const accessToken =  spotify.getAccessToken()
-    if(accessToken){
-      console.log(accessToken)
-    }
-    const jams = spotify.search(jam, accessToken)
+    const jams = spotify.search(jam)
     this.setState({
       searchResults:jams
     })
