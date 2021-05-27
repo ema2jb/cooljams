@@ -42,7 +42,7 @@ export const spotify = {
 
   async search(searchTerm){
       this.getAccessToken()
-    console.log(userAccessToken);
+    console.log(searchTerm);
       try{
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
             headers: {Authorization: `Bearer ${userAccessToken}`}
