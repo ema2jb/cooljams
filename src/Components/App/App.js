@@ -79,12 +79,12 @@ class App extends React.Component {
   }
 
   search(jam){
-    const jams = spotify.search(jam)
-    console.log(jams);
-    this.setState({
-      searchResults:jams
+    spotify.search(jam).then((jams)=>{
+      console.log(jams)
+      this.setState({
+        searchResults:jams
+      })
     })
-  }
 
 
   render(){
