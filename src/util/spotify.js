@@ -45,8 +45,8 @@ export const spotify = {
           })
           if(response.ok){
             const jsonResponse = await response.json()
-            console.log(jsonResponse)
             if(jsonResponse){
+                console.log(jsonResponse.tracks.items)
                 const Tracks = jsonResponse.map((track)=>{
                     return {
                         id:track.id,
