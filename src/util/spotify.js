@@ -56,6 +56,7 @@ export const spotify = {
                         URI:track.uri
                     }
                 })
+                console.log(Tracks);
                 return Tracks
             } else {
                 return  {
