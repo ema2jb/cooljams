@@ -15,7 +15,7 @@ Ensure playlist information doesn’t get cleared if a user has to refresh their
 let userAccessToken = '';
 let expiresIn;
 const clientID = '58b0b44d6a36401ba4b6bab925186aff'
-const redirectURI = 'https://ema2jb.netlify.app/';
+const redirectURI = window.location.href;
 
 
 
