@@ -15,7 +15,7 @@ Ensure playlist information doesn’t get cleared if a user has to refresh their
 let userAccessToken = '';
 let expiresIn;
 const clientID = '58b0b44d6a36401ba4b6bab925186aff'
-const redirectURI = 'https://ema2jb.netlify.app/';
+const redirectURI = 'http://ema2jb.surge.sh';
 
 
 
@@ -38,6 +38,7 @@ export const spotify = {
 
   async search(searchTerm, accessToken){
       userAccessToken = accessToken
+      console.log(userAccessToken, searchTerm)
     //console.log(userAccessToken);
       try{
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
@@ -45,6 +46,7 @@ export const spotify = {
           })
           if(response.ok){
             const jsonResponse = await response.json()
+            console.log(jsonResponse)
             if(jsonResponse){
                 const Tracks = jsonResponse.map((track)=>{
                     return {
