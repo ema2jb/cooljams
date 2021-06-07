@@ -69,7 +69,7 @@ class App extends React.Component {
 
   savePlaylist(){
     const trackURIs = this.state.playlistTracks.map(playlistTrack => {
-      return playlistTrack.uri
+      return playlistTrack.URI
     })
     spotify.savePlaylist(this.state.playlistName, trackURIs)
     this.setState({
