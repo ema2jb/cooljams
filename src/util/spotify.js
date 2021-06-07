@@ -26,7 +26,7 @@ export const spotify = {
             return userAccessToken
         }else if (window.location.href.match(/access_token=([^&]*)/)) {
             userAccessToken = window.location.href.match(/access_token=([^&]*)/)[1];
-            expiresIn = window.location.href.match(/expires_in=([^&]*)/)[1];
+            expiresIn = Number(window.location.href.match(/expires_in=([^&]*)/)[1]);
             window.setTimeout(() => userAccessToken = '', expiresIn * 1000);
             window.history.pushState('Access Token', null, '/');
             return userAccessToken
