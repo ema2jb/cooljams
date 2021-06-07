@@ -73,10 +73,9 @@ export const spotify = {
         if(!name || !playlistTracks){
             return;
         }
-        let accessToken = window.location.href.match(/access_token=([^&]*)/)[1];
         let userID;
         let playlistID;
-        let headers = {Authorization: `Bearer ${accessToken}`};
+        let headers = {Authorization: `Bearer ${userAccessToken}`};
         const response = await fetch('https://api.spotify.com/v1/me', {headers:headers});
         if(response.ok){
             const jsonResponse = await response.json();
@@ -98,6 +97,7 @@ export const spotify = {
         })
         if(response2.ok){
             console.log('ok');
+            alert('ok')
         }
     }
 }
