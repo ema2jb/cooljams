@@ -82,7 +82,7 @@ export const spotify = {
             userID = jsonResponse.id;
             console.log(userID)
         }
-        const response1 = await fetch(`https://api.spotify.com/v1//v1/users/${userID}/playlists`, {
+        const response1 = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
             headers: headers,
             method: 'POST',
             body: JSON.stringify({name:name})
@@ -90,8 +90,9 @@ export const spotify = {
         if(response1.ok){
             const jsonResponse1 = await response1.json();
             playlistID = jsonResponse1.id;
+            console.log(playlistID)
         }
-        const response2 = await fetch(`/v1/users/${userID}/playlists/${playlistID}/tracks`, {
+        const response2 = await fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {
             headers: headers,
             method: 'POST',
             body:JSON.stringify({"uris":playlistTracks})
