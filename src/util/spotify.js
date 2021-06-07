@@ -75,25 +75,26 @@ export const spotify = {
         }
         let userID;
         let playlistID;
-        let headers = {Authorization: `Bearer ${userAccessToken}`};
+        let headers = {Authorization: `Bearer ${this.getAccessToken()}`};
         const response = await fetch('https://api.spotify.com/v1/me', {headers:headers});
         if(response.ok){
             const jsonResponse = await response.json();
             userID = jsonResponse.id;
+            console.log(userID)
         }
         const response1 = await fetch(`https://api.spotify.com/v1//v1/users/${userID}/playlists`, {
             headers: headers,
             method: 'POST',
-            body:{name:name}
+            body: JSON.stringify({name:name})
         })
         if(response1.ok){
             const jsonResponse1 = await response1.json();
             playlistID = jsonResponse1.id;
         }
-        const response2 = await fetch(`/v1/users/{user_id}/playlists/${playlistID}/tracks`, {
+        const response2 = await fetch(`/v1/users/${userID}/playlists/${playlistID}/tracks`, {
             headers: headers,
             method: 'POST',
-            body:{"uris":playlistTracks}
+            body:JSON.stringify({"uris":playlistTracks})
         })
         if(response2.ok){
             console.log('ok');
